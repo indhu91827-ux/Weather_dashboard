@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const API_KEY = "f33803492dddcc76b8741db0d0017c1e"; // replace with OpenWeatherMap API key
+  const API_KEY = ""; // replace with OpenWeatherMap API key
 
   /*********************************
    * CLOCK
