@@ -1,0 +1,282 @@
+/* =========================
+   🌍 MAP BACKGROUND LAYER
+========================= */
+
+#map {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 0;
+
+  pointer-events: auto; /* IMPORTANT */
+}
+
+/* =========================
+   🌫️ DARK OVERLAY (optional but makes UI readable)
+========================= */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+
+  pointer-events: none; /* IMPORTANT FIX */
+}
+
+/* =========================
+   🌍 BODY BASE
+========================= */
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none; /* IMPORTANT: map replaces gradient */
+  overflow: hidden;
+}
+
+/* =========================
+   📦 MAIN UI CONTAINER
+========================= */
+
+.container {
+  position: relative;
+  z-index: 2; /* above map */
+  text-align: center;
+  width: 90%;
+  max-width: 420px;
+}
+
+/* =========================
+   🏷️ TITLE
+========================= */
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #fff;
+  
+}
+
+/* =========================
+   ⏱️ DATE TIME
+========================= */
+
+.datetime {
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #fff;
+  opacity: 0.9;
+}
+
+
+/* Light Theme */
+body.light {
+  --card-bg: rgba(255,255,255,0.8);
+  --text-color: #222;
+}
+
+/* Dark Theme */
+body.dark {
+  --card-bg: rgba(0,0,0,0.5);
+  --text-color: white;
+}
+
+.weather-card {
+  background: var(--card-bg);
+  color: var(--text-color);
+}
+/* =========================
+   🔍 SEARCH BOX
+========================= */
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+/* =========================
+   ⌨️ INPUT
+========================= */
+
+input {
+  padding: 12px;
+  width: 70%;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* =========================
+   🔘 BUTTON
+========================= */
+
+button {
+  padding: 12px 16px;
+  border: none;
+  background: #0984e3;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #0652dd;
+  transform: scale(1.05);
+}
+
+/* =========================
+   🌤️ GLASS WEATHER CARD
+========================= */
+
+.weather-card {
+  margin-top: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 2px 8px 25px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease;
+  color: #fff;
+}
+
+.weather-card:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================
+   🌡️ CITY NAME
+========================= */
+
+#cityName {
+  margin-bottom: 10px;
+  font-size: 22px;
+  -webkit-text-stroke: 1px black;
+}
+
+/* =========================
+   🌦️ ICON
+========================= */
+
+#weatherIcon {
+  width: 90px;
+  height: 90px;
+}
+
+/* =========================
+   📊 DETAILS
+========================= */
+
+.weather-card p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+/* =========================
+   ❌ ERROR
+========================= */
+
+.error {
+  color: #ff7675;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* =========================
+   📱 MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  input {
+    width: 60%;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .weather-card {
+    padding: 20px;
+  }
+}
+#legend {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+
+  padding: 12px 14px;
+  border-radius: 10px;
+
+  font-size: 13px;
+  width: 150px;
+
+  backdrop-filter: blur(8px);
+}
+
+#legend h4 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  gap: 8px;
+}
+
+/* color circles */
+.color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* matching your JS backgrounds */
+.clear {
+  background: linear-gradient(to right, #fceabb, #f8b500);
+}
+
+.clouds {
+  background: linear-gradient(to right, #bdc3c7, #2c3e50);
+}
+
+.rain {
+  background: linear-gradient(to right, #4b79a1, #283e51);
+}
+
+.thunder {
+  background: linear-gradient(to right, #141e30, #243b55);
+}
+
+.snow {
+  background: linear-gradient(to right, #e6dada, #274046);
+}
+/* .leaflet-control-attribution span {
+  display: none;
+} */

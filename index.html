@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather Dashboard</title>
+  <link rel="shortcut icon" href="https://m.media-amazon.com/images/I/51ZgFK-FbwL.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css"/>
+
+
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>Weather Dashboard</h1>
+    <div class="datetime" id="datetime"></div>
+
+    <div class="search-box">
+      <input type="text" id="cityInput" placeholder="Enter city name..." />
+      <button onclick="getWeatherByCity()">Search</button>
+    </div>
+
+    <div class="weather-card" id="weatherCard">
+      <h2 id="cityName">--</h2>
+      <img id="weatherIcon" />
+      <p id="temp">Temperature: --</p>
+      <p id="humidity">Humidity: --</p>
+      <p id="wind">Wind Speed: --</p>
+      <p id="condition">Condition: --</p>
+    </div>
+
+    <p class="error" id="error"></p>
+
+  </div>
+<div id="map">
+  <div id="legend">
+  <h4>Weather Legend</h4>
+
+  <div class="legend-item">
+    <span class="color clear"></span> Clear
+  </div>
+
+  <div class="legend-item">
+    <span class="color clouds"></span> Clouds
+  </div>
+
+  <div class="legend-item">
+    <span class="color rain"></span> Rain
+  </div>
+
+  <div class="legend-item">
+    <span class="color thunder"></span> Thunderstorm
+  </div>
+
+  <div class="legend-item">
+    <span class="color snow"></span> Snow
+  </div>
+</div>
+</div>
+  <script src="script.js"></script>
+</html>
